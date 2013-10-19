@@ -72,6 +72,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     device/samsung/msm8960-common/keylayout/AVRCP.kl:system/usr/keylayout/AVRCP.kl \
     device/samsung/msm8960-common/keylayout/Generic.kl:system/usr/keylayout/Generic.kl \
+    device/samsung/msm8960-common/keylayout/qwerty.kl:system/usr/keylayout/qwerty.kl\
     device/samsung/msm8960-common/keylayout/cyttsp-i2c.kl:system/usr/keylayout/cyttsp-i2c.kl \
     device/samsung/msm8960-common/keylayout/keypad_8960.kl:system/usr/keylayout/keypad_8960.kl \
     device/samsung/msm8960-common/keylayout/Vendor_045e_Product_028e.kl:system/usr/keylayout/Vendor_045e_Product_028e.kl \
