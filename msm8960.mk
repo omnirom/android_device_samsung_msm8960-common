@@ -52,9 +52,9 @@ PRODUCT_PACKAGES += \
     hwcomposer.msm8960 \
     power.msm8960
 
-# GalaxyS3Settings
+# GalaxyS4Settings
 PRODUCT_PACKAGES += \
-    GalaxyS3Settings \
+    GalaxyS4Settings \
     SamsungServiceMode
 
 # Misc
