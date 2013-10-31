@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.cyanogenmod.settings.device;
+package org.omnirom.omnigears.device;
 
 import android.app.ActivityManagerNative;
 import android.content.Context;
@@ -36,7 +36,7 @@ public class SoundFragmentActivity extends PreferenceFragment {
     private static final String CATEGORY_VOLUME   = "volume";
     private static final String KEY_VOC_EP_XGAIN  = "voc_ep_xgain";
     private static final String PROP_VOC_EP_XGAIN = "persist.audio.voc_ep.xgain";
-    private static final String TAG = "GalaxyS3Parts_General";
+    private static final String TAG = "GalaxyS4Parts_General";
 
     private CheckBoxPreference mVocEpXgain;
 
@@ -67,7 +67,7 @@ public class SoundFragmentActivity extends PreferenceFragment {
             SystemProperties.set(PROP_VOC_EP_XGAIN, mVocEpXgain.isChecked() ? "1" : "0");
         } else if (key.compareTo(DeviceSettings.KEY_USE_DOCK_AUDIO) == 0) {
             boxValue = (((CheckBoxPreference)preference).isChecked() ? "1" : "0");
-            Intent i = new Intent("com.cyanogenmod.settings.SamsungDock");
+            Intent i = new Intent("org.omnirom.omnigears.SamsungDock");
             i.putExtra("data", boxValue);
             ActivityManagerNative.broadcastStickyIntent(i, null, UserHandle.USER_ALL);
         } else {
@@ -79,7 +79,7 @@ public class SoundFragmentActivity extends PreferenceFragment {
     public static void restore(Context context) {
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean dockAudio = sharedPrefs.getBoolean(DeviceSettings.KEY_USE_DOCK_AUDIO, false);
-        Intent i = new Intent("com.cyanogenmod.settings.SamsungDock");
+        Intent i = new Intent("org.omnirom.omnigears.SamsungDock");
         i.putExtra("data", (dockAudio? "1" : "0"));
         ActivityManagerNative.broadcastStickyIntent(i, null, UserHandle.USER_ALL);
     }

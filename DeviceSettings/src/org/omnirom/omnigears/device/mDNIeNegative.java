@@ -14,32 +14,31 @@
  * limitations under the License.
  */
 
-package com.cyanogenmod.settings.device;
+package org.omnirom.omnigears.device;
 
-import java.io.IOException;
 import android.content.Context;
-import android.util.AttributeSet;
 import android.content.SharedPreferences;
+import android.preference.CheckBoxPreference;
 import android.preference.Preference;
-import android.preference.ListPreference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceManager;
+import android.util.AttributeSet;
 
-public class TouchscreenSensitivity extends ListPreference implements OnPreferenceChangeListener {
+public class mDNIeNegative extends CheckBoxPreference implements OnPreferenceChangeListener {
 
-    public TouchscreenSensitivity(Context context, AttributeSet attrs) {
+    public mDNIeNegative(Context context, AttributeSet attrs) {
         super(context, attrs);
         this.setOnPreferenceChangeListener(this);
     }
 
-    private static final String FILE = "/sys/class/misc/melfas_touchkey/touchkey_threshold";
+    private static final String FILE = "/sys/class/mdnie/mdnie/negative";
 
     public static boolean isSupported() {
         return Utils.fileExists(FILE);
     }
 
     /**
-     * Restore touchscreen sensitivity setting from SharedPreferences. (Write to kernel.)
+     * Restore mdnie negative mode setting from SharedPreferences. (Write to kernel.)
      * @param context       The context to read the SharedPreferences from
      */
     public static void restore(Context context) {
@@ -48,11 +47,11 @@ public class TouchscreenSensitivity extends ListPreference implements OnPreferen
         }
 
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
-        Utils.writeValue(FILE, sharedPrefs.getString(DeviceSettings.KEY_TOUCHSCREEN_SENSITIVITY, "50"));
+        Utils.writeValue(FILE, sharedPrefs.getBoolean(DeviceSettings.KEY_MDNIE_NEGATIVE, false) ? "1" : "0");
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        Utils.writeValue(FILE, (String) newValue);
+        Utils.writeValue(FILE, (Boolean)newValue ? "1" : "0");
         return true;
     }
 

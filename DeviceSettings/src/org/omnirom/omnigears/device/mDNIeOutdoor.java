@@ -14,32 +14,33 @@
  * limitations under the License.
  */
 
-package com.cyanogenmod.settings.device;
+package org.omnirom.omnigears.device;
 
 import android.content.Context;
-
 import android.content.SharedPreferences;
-import android.util.AttributeSet;
+import android.os.Build;
+import android.preference.CheckBoxPreference;
 import android.preference.Preference;
-import android.preference.ListPreference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceManager;
+import android.util.AttributeSet;
 
-public class mDNIeScenario extends ListPreference implements OnPreferenceChangeListener {
+public class mDNIeOutdoor extends CheckBoxPreference implements OnPreferenceChangeListener {
 
-    public mDNIeScenario(Context context, AttributeSet attrs) {
-        super(context,attrs);
+    public mDNIeOutdoor(Context context, AttributeSet attrs) {
+        super(context, attrs);
         this.setOnPreferenceChangeListener(this);
     }
 
-    private static final String FILE = "/sys/class/mdnie/mdnie/scenario";
+    private static final String FILE = "/sys/class/mdnie/mdnie/outdoor";
 
     public static boolean isSupported() {
-        return Utils.fileExists(FILE);
+        // D2 doesn't actually support outdoor mode
+        return Utils.fileExists(FILE) && !Build.DEVICE.startsWith("d2");
     }
 
     /**
-     * Restore mdnie setting from SharedPreferences. (Write to kernel.)
+     * Restore mdnie outdoor mode setting from SharedPreferences. (Write to kernel.)
      * @param context       The context to read the SharedPreferences from
      */
     public static void restore(Context context) {
@@ -48,11 +49,11 @@ public class mDNIeScenario extends ListPreference implements OnPreferenceChangeL
         }
 
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
-        Utils.writeValue(FILE, sharedPrefs.getString(DeviceSettings.KEY_MDNIE_SCENARIO, "0"));
+        Utils.writeValue(FILE, sharedPrefs.getBoolean(DeviceSettings.KEY_MDNIE_OUTDOOR, false) ? "1" : "0");
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        Utils.writeValue(FILE, (String) newValue);
+        Utils.writeValue(FILE, (Boolean)newValue ? "1" : "0");
         return true;
     }
 

@@ -7,14 +7,14 @@
             android:title="@string/screen_colors_title">
 
     <!-- CABC -->
-    <com.cyanogenmod.settings.device.CABC
+    <org.omnirom.omnigears.device.CABC
             android:key="cabc"
             android:title="@string/cabc_title_head"
             android:summary="@string/cabc_summary_head"
             android:defaultValue="true" />
 
     <!-- mDNIe Scenario modes -->
-    <com.cyanogenmod.settings.device.mDNIeScenario
+    <org.omnirom.omnigears.device.mDNIeScenario
 	        android:key="mdnie_scenario"
 	        android:title="@string/mdnie_scenario_title_head"
 	        android:summary="@string/mdnie_scenario_summary_head"
@@ -23,7 +23,7 @@
   			android:defaultValue="0" />
 
     <!-- mDNIe Mode -->
-    <com.cyanogenmod.settings.device.mDNIeMode
+    <org.omnirom.omnigears.device.mDNIeMode
 	        android:key="mdnie_mode"
 	        android:title="@string/mdnie_mode_title_head"
 	        android:summary="@string/mdnie_mode_summary_head"
@@ -32,20 +32,20 @@
   			android:defaultValue="1" />
 
     <!-- mDNIe Outdoor mode -->
-    <com.cyanogenmod.settings.device.mDNIeOutdoor
+    <org.omnirom.omnigears.device.mDNIeOutdoor
 	        android:key="mdnie_outdoor_mode"
 	        android:title="@string/mdnie_outdoor_title_head"
 	        android:summary="@string/mdnie_outdoor_summary_head"
   			android:defaultValue="false" />
 
     <!-- mDNIe Negative mode -->
-    <com.cyanogenmod.settings.device.mDNIeNegative
+    <org.omnirom.omnigears.device.mDNIeNegative
             android:key="mdnie_negative_mode"
             android:title="@string/mdnie_negative_title_head"
             android:summary="@string/mdnie_negative_summary_head"
             android:defaultValue="false" />
     <!-- Panel color temperature mode -->
-    <com.cyanogenmod.settings.device.PanelColorTemperature
+    <org.omnirom.omnigears.device.PanelColorTemperature
             android:key="panel_color_temperature"
             android:title="@string/panel_color_temp_title_head"
             android:summary="@string/panel_color_temp_summary_head"
@@ -57,7 +57,7 @@
     <PreferenceCategory
             android:key="touchscreen"
             android:title="@string/touchscreen_subcat_title">
-    <com.cyanogenmod.settings.device.TouchscreenSensitivity
+    <org.omnirom.omnigears.device.TouchscreenSensitivity
                 android:key="touchscreen_sensitivity"
                 android:title="@string/touchscreen_sensitivity_title_head"
                 android:summary="@string/touchscreen_sensitivity_summary_head"

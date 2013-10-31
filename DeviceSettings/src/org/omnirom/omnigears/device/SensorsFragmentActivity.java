@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.cyanogenmod.settings.device;
+package org.omnirom.omnigears.device;
 
 import java.io.File;
 
@@ -31,7 +31,7 @@ import android.util.Log;
 
 public class SensorsFragmentActivity extends PreferenceFragment {
 
-    private static final String TAG = "GalaxyS3Parts_General";
+    private static final String TAG = "GalaxyS4Parts_General";
 
     private static final String FILE_USE_GYRO_CALIB = "/sys/class/sec/gsensorcal/calibration";
     private static final String FILE_TOUCHKEY_TOGGLE = "/sys/class/leds/button-backlight/max_brightness";
