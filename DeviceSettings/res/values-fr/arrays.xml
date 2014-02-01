@@ -25,6 +25,7 @@
         <item>VT</item>
     </string-array>
     <string-array name="mdnie_mode_entries">
+        <item>Automatique</item>
         <item>Standard (Par défaut)</item>
         <item>Dynamique</item>
         <item>Naturel</item>
