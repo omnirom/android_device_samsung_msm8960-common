@@ -42,8 +42,6 @@ BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_bcmdhd
 BOARD_WLAN_DEVICE := bcmdhd
 BOARD_HAVE_SAMSUNG_WIFI := true
 
-WIFI_DRIVER_MODULE_PATH     := "/system/lib/modules/dhd.ko"
-WIFI_DRIVER_MODULE_NAME     := "dhd"
 WIFI_DRIVER_MODULE_ARG      := "firmware_path=/system/etc/wifi/bcmdhd_sta.bin nvram_path=/system/etc/wifi/nvram_net.txt"
 WIFI_DRIVER_MODULE_AP_ARG   := "firmware_path=/system/etc/wifi/bcmdhd_apsta.bin nvram_path=/system/etc/wifi/nvram_net.txt"
 WIFI_DRIVER_FW_PATH_PARAM   := "/sys/module/dhd/parameters/firmware_path"
@@ -82,10 +80,6 @@ TARGET_USES_QCOM_COMPRESSED_AUDIO := true
 # QCOM enhanced A/V
 TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
 
-# QCOM BSP Enabled
-TARGET_USES_QCOM_BSP := true
-COMMON_GLOBAL_CFLAGS += -DQCOM_BSP
-
 # Kernel time optimization
 # temp remove - causing issues with short/long presses
 # KERNEL_HAS_GETTIMEOFDAY_HELPER := true
@@ -96,5 +90,29 @@ BOARD_HAVE_NEW_QC_GPS := true
 # Use CAF media driver variant for 8960
 TARGET_QCOM_MEDIA_VARIANT := caf
 
-# CM only flag which is not needed for our display-caf
-# TARGET_DISPLAY_USE_RETIRE_FENCE := false
+# SELinux
+BOARD_SEPOLICY_DIRS += \
+        device/samsung/msm8960-common/sepolicy
+
+BOARD_SEPOLICY_UNION += \
+        file_contexts \
+        app.te \
+        bluetooth.te \
+        device.te \
+        domain.te \
+        drmserver.te \
+        file.te \
+        hci_init.te \
+        healthd.te \
+        init.te \
+        init_shell.te \
+        keystore.te \
+        kickstart.te \
+        mediaserver.te \
+        nfc.te \
+        rild.te \
+        surfaceflinger.te \
+        system.te \
+        ueventd.te \
+        wpa.te \
+        wpa_socket.te
