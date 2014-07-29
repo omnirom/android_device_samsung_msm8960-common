@@ -82,8 +82,12 @@ TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
 # We have the new GPS driver
 BOARD_HAVE_NEW_QC_GPS := true
 
-# Use CAF media driver variant for 8960
+# Use CAF driver variant for 8960
+TARGET_QCOM_AUDIO_VARIANT := caf
+TARGET_QCOM_DISPLAY_VARIANT := caf
 TARGET_QCOM_MEDIA_VARIANT := caf
+BOARD_USES_LEGACY_ALSA_AUDIO := true
+
 
 # SELinux
 BOARD_SEPOLICY_DIRS += \
